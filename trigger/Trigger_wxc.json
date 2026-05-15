@@ -1,0 +1,25 @@
+{
+	"name": "Trigger_wxc",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "adfpipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2026-04-25T20:25:00",
+				"endTime": "2026-04-26T22:05:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

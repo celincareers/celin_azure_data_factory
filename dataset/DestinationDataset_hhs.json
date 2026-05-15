@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_hhs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "gcpwrite_telco_tower.json",
+				"folderPath": "adf_bronze",
+				"fileSystem": "azstoragecontaineradls"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

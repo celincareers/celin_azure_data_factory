@@ -1,0 +1,40 @@
+{
+	"name": "adf_restapi_setvariable",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "sv_variable_cuurlist",
+					"value": {
+						"value": "@variables('pp_sv_currencylist')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"pp_sv_currencylist": {
+				"type": "Array",
+				"defaultValue": [
+					"USD",
+					"AED",
+					"SGD"
+				]
+			},
+			"sv_variable_cuurlist": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-04-28T12:03:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

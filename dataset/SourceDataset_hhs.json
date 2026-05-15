@@ -1,0 +1,16 @@
+{
+	"name": "SourceDataset_hhs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MySqlGCP1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "`dim_tower_source`"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,15 @@
+{
+	"name": "celin-adf2-studio",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5f4c57e1-b87e-4e40-b300-e5c6e96d19b0",
+		"tenantId": "49517a9f-ab2b-49be-a783-3ae04bc69308"
+	}
+}

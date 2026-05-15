@@ -1,0 +1,152 @@
+{
+	"name": "adf_pullgcp_towerdevices",
+	"properties": {
+		"description": "data to be extracted from gcp to adls gen2 ",
+		"activities": [
+			{
+				"name": "Copy_hhs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "`dim_tower_source`"
+					},
+					{
+						"name": "Destination",
+						"value": "azstoragecontaineradls/adf_bronze/gcpwrite_telco_tower.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "MySqlSource"
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "AzureDataLakeStorageGen2",
+								"type": "LinkedServiceReference"
+							},
+							"path": "azstoragecontaineradls/adf_bronze"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "tower_id",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tower_id']"
+								}
+							},
+							{
+								"source": {
+									"name": "tower_name",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tower_name']"
+								}
+							},
+							{
+								"source": {
+									"name": "city",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['city']"
+								}
+							},
+							{
+								"source": {
+									"name": "state",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['state']"
+								}
+							},
+							{
+								"source": {
+									"name": "region",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['region']"
+								}
+							},
+							{
+								"source": {
+									"name": "network_type",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['network_type']"
+								}
+							},
+							{
+								"source": {
+									"name": "installation_date",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['installation_date']"
+								}
+							},
+							{
+								"source": {
+									"name": "updated_at",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['updated_at']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_hhs",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_hhs",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-04-24T15:48:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "destination_ds_gcpbq_write",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "adf_gcp_bigquery_write_adls.json",
+				"folderPath": "adf_bronze",
+				"fileSystem": "azstoragecontaineradls"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

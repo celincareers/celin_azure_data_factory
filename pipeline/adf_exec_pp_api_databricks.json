@@ -1,0 +1,81 @@
+{
+	"name": "adf_exec_pp_api_databricks",
+	"properties": {
+		"activities": [
+			{
+				"name": "Exec_pp_restapi_adls_databricks",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "adf_restapi_pp_param",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"pp_currency_list_param": {
+							"value": "@pipeline().parameters.Curr_expp",
+							"type": "Expression"
+						},
+						"filename": {
+							"value": "@pipeline().parameters.File_expp",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "nb_call_databricks",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Exec_pp_restapi_adls_databricks",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/celinb4u@gmail.com/dbspark_handson_repo_celin/ADF_usecases/nb_usecase_8_API_CALL_fromADF",
+					"baseParameters": {
+						"filename": {
+							"value": "@pipeline().parameters.File_expp",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"File_expp": {
+				"type": "string"
+			},
+			"Curr_expp": {
+				"type": "array",
+				"defaultValue": [
+					"SBD",
+					"RUB"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-13T13:40:00Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
