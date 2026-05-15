@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-studio-celinv2"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorageGen2_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"GCP_MySql1Inceptez_password": {
+			"value": ""
+		},
+		"GoogleBigQuery1_keyFileContent": {
+			"value": ""
+		},
+		"MySqlGCP1_password": {
+			"value": ""
+		},
+		"adls_write_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azstorageaccountadls.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorageGen2_properties_typeProperties_url": {
+			"value": "https://azstorageaccountadls.dfs.core.windows.net/"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0420-143701-1w0ymtgi"
+		},
+		"GCP_MySql1Inceptez_properties_typeProperties_server": {
+			"value": "35.223.80.16"
+		},
+		"GCP_MySql1Inceptez_properties_typeProperties_database": {
+			"value": "inventory_celin"
+		},
+		"GCP_MySql1Inceptez_properties_typeProperties_username": {
+			"value": "inceptez"
+		},
+		"MySqlGCP1_properties_typeProperties_server": {
+			"value": "35.223.80.16"
+		},
+		"MySqlGCP1_properties_typeProperties_database": {
+			"value": "telco_schema"
+		},
+		"MySqlGCP1_properties_typeProperties_username": {
+			"value": "inceptez"
+		},
+		"adls_write_properties_typeProperties_url": {
+			"value": "https://azstorageaccountadls.dfs.core.windows.net/"
+		}
+	}
+}
