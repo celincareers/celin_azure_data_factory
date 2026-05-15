@@ -64,7 +64,8 @@
 		],
 		"parameters": {
 			"File_expp": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Currency_apiout"
 			},
 			"Curr_expp": {
 				"type": "array",
