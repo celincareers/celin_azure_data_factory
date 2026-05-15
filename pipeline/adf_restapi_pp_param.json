@@ -118,7 +118,10 @@
 							"outputs": [
 								{
 									"referenceName": "adls_writejson",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": "Currency_apioutput"
+									}
 								}
 							]
 						}
@@ -161,10 +164,15 @@
 		],
 		"parameters": {
 			"pp_currency_list_param": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": [
+					"SBD",
+					"RUB"
+				]
 			},
 			"filename": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Currency_apiout"
 			}
 		},
 		"variables": {
